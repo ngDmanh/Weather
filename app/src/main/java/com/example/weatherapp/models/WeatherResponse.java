@@ -7,15 +7,15 @@ public class WeatherResponse {
     private List<Weather> weather;
     private String base;
     private Main main;
-    private Integer visibility;
+    private double visibility;
     private Wind wind;
-    private Clouds clouds;
-    private Integer dt;
+    private Cloud clouds;
+    private double dt;
     private Sys sys;
-    private Integer timeZone;
-    private Integer id;
+    private double timeZone;
+    private double id;
     private String name;
-    private Integer cod;
+    private double cod;
 
     public Coord getCoord() {
         return coord;
@@ -49,11 +49,11 @@ public class WeatherResponse {
         this.main = main;
     }
 
-    public Integer getVisibility() {
+    public double getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(Integer visibility) {
+    public void setVisibility(double visibility) {
         this.visibility = visibility;
     }
 
@@ -65,19 +65,19 @@ public class WeatherResponse {
         this.wind = wind;
     }
 
-    public Clouds getClouds() {
+    public Cloud getClouds() {
         return clouds;
     }
 
-    public void setClouds(Clouds clouds) {
+    public void setClouds(Cloud clouds) {
         this.clouds = clouds;
     }
 
-    public Integer getDt() {
+    public double getDt() {
         return dt;
     }
 
-    public void setDt(Integer dt) {
+    public void setDt(double dt) {
         this.dt = dt;
     }
 
@@ -89,19 +89,19 @@ public class WeatherResponse {
         this.sys = sys;
     }
 
-    public Integer getTimeZone() {
+    public double getTimeZone() {
         return timeZone;
     }
 
-    public void setTimeZone(Integer timeZone) {
+    public void setTimeZone(double timeZone) {
         this.timeZone = timeZone;
     }
 
-    public Integer getId() {
+    public double getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(double id) {
         this.id = id;
     }
 
@@ -113,11 +113,11 @@ public class WeatherResponse {
         this.name = name;
     }
 
-    public Integer getCod() {
+    public double getCod() {
         return cod;
     }
 
-    public void setCod(Integer cod) {
+    public void setCod(double cod) {
         this.cod = cod;
     }
 

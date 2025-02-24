@@ -13,8 +13,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="228dp"
         android:hint="CITY"
+        app:layout_constraintBottom_toTopOf="@+id/btnCheck"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
@@ -25,6 +26,7 @@
         android:layout_marginTop="150dp"
         android:hint="RESULT"
         android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/etCity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

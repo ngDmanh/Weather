@@ -17,6 +17,10 @@ import com.example.weatherapp.API.WeatherAPIClient;
 import com.example.weatherapp.API.WeatherService;
 import com.example.weatherapp.models.WeatherResponse;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     void initData() {
         weatherService = WeatherAPIClient.getInstance().create(WeatherService.class);
+
     }
 
     void searchWeather(String city) {
@@ -85,9 +90,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void displayWeather(WeatherResponse weather) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        long sunriseTimestamp = (long) weather.getSys().getSunrise();
+        long sunsetTimestamp = (long) weather.getSys().getSunset();
+
+        if (sunriseTimestamp > 0) {
+            String sunrise = sdf.format(new Date(sunriseTimestamp * 1000L));
+        } else {
+            String sunrise = "N/A";
+        }
+
+        if (sunsetTimestamp > 0) {
+            String sunset = sdf.format(new Date(sunsetTimestamp * 1000L));
+        } else {
+            String sunset = "N/A";
+        }
+
         String result = "City: " + weather.getName() + "\n" +
                 "Temperature: " + weather.getMain().getTemp() + "°C\n" +
+                "Humidity: " + weather.getMain().getHumidity() + "%\n" +
+                "Pressure: " + weather.getMain().getPressure() + " hPa\n" +
+                "Wind Speed: " + weather.getWind().getSpeed() + " m/s\n" +
+                "Wind Direction: " + weather.getWind().getDeg() + "°\n" +
+                "Sunrise: " + sunriseTimestamp + "\n" +
+                "Sunset: " + sunsetTimestamp + "\n" +
                 "Weather: " + weather.getWeathers().get(0).getDescription();
+
         tvResult.setText(result);
     }
 }

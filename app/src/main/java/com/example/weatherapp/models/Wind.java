@@ -1,31 +1,31 @@
 package com.example.weatherapp.models;
 
 public class Wind {
-    private Float speed;
-    private Integer deg;
-    private Float gust;
+    private double speed;
+    private double deg;
+    private double gust;
 
-    public Float getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(Float speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
-    public Integer getDeg() {
+    public double getDeg() {
         return deg;
     }
 
-    public void setDeg(Integer deg) {
+    public void setDeg(double deg) {
         this.deg = deg;
     }
 
-    public Float getGust() {
+    public double getGust() {
         return gust;
     }
 
-    public void setGust(Float gust) {
+    public void setGust(double gust) {
         this.gust = gust;
     }
 }

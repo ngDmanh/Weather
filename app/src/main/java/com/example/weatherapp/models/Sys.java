@@ -1,25 +1,25 @@
 package com.example.weatherapp.models;
 
 public class Sys {
-    private Integer type;
-    private Integer id;
+    private double type;
+    private double id;
     private String country;
-    private Integer sunrise;
-    private Integer sunset;
+    private double sunrise;
+    private double sunset;
 
-    public Integer getType() {
+    public double getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(double type) {
         this.type = type;
     }
 
-    public Integer getId() {
+    public double getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(double id) {
         this.id = id;
     }
 
@@ -31,19 +31,19 @@ public class Sys {
         this.country = country;
     }
 
-    public Integer getSunrise() {
+    public double getSunrise() {
         return sunrise;
     }
 
-    public void setSunrise(Integer sunrise) {
+    public void setSunrise(double sunrise) {
         this.sunrise = sunrise;
     }
 
-    public Integer getSunset() {
+    public double getSunset() {
         return sunset;
     }
 
-    public void setSunset(Integer sunset) {
+    public void setSunset(double sunset) {
         this.sunset = sunset;
     }
 }

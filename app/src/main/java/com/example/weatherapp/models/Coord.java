@@ -1,22 +1,22 @@
 package com.example.weatherapp.models;
 
 public class Coord {
-    private Float lon;
-    private Float lat;
+    private double lon;
+    private double lat;
 
-    public Float getLon() {
+    public double getLon() {
         return lon;
     }
 
-    public void setLon(Float lon) {
+    public void setLon(double lon) {
         this.lon = lon;
     }
 
-    public Float getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(Float lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 

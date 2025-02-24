@@ -1,24 +1,24 @@
 package com.example.weatherapp.models;
 
 public class Main {
-    private Integer temp;
-    private Float feels_like;
-    private Integer temp_min;
-    private Integer temp_max;
-    private Integer pressure;
-    private Integer humidity;
-    private Integer sea_level;
-    private Integer grnd_level;
+    private double temp;
+    private double feels_like;
+    private double temp_min;
+    private double temp_max;
+    private double pressure;
+    private double humidity;
+    private double sea_level;
+    private double grnd_level;
 
-    public Integer getTemp() {
+    public double getTemp() {
         return temp;
     }
 
-    public void setTemp(Integer temp) {
+    public void setTemp(double temp) {
         this.temp = temp;
     }
 
-    public Float getFeels_like() {
+    public double getFeels_like() {
         return feels_like;
     }
 
@@ -26,51 +26,51 @@ public class Main {
         this.feels_like = feels_like;
     }
 
-    public Integer getTemp_min() {
+    public double getTemp_min() {
         return temp_min;
     }
 
-    public void setTemp_min(Integer temp_min) {
+    public void setTemp_min(double temp_min) {
         this.temp_min = temp_min;
     }
 
-    public Integer getTemp_max() {
+    public double getTemp_max() {
         return temp_max;
     }
 
-    public void setTemp_max(Integer temp_max) {
+    public void setTemp_max(double temp_max) {
         this.temp_max = temp_max;
     }
 
-    public Integer getPressure() {
+    public double getPressure() {
         return pressure;
     }
 
-    public void setPressure(Integer pressure) {
+    public void setPressure(double pressure) {
         this.pressure = pressure;
     }
 
-    public Integer getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Integer humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
 
-    public Integer getSea_level() {
+    public double getSea_level() {
         return sea_level;
     }
 
-    public void setSea_level(Integer sea_level) {
+    public void setSea_level(double sea_level) {
         this.sea_level = sea_level;
     }
 
-    public Integer getGrnd_level() {
+    public double getGrnd_level() {
         return grnd_level;
     }
 
-    public void setGrnd_level(Integer grnd_level) {
+    public void setGrnd_level(double grnd_level) {
         this.grnd_level = grnd_level;
     }
 }
