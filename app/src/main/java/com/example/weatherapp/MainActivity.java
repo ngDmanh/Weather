@@ -1,27 +1,41 @@
 package com.example.weatherapp;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.weatherapp.API.WeatherAPIClient;
+import com.example.weatherapp.API.WeatherService;
+import com.example.weatherapp.models.WeatherResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText etCity;
     private TextView tvResult;
     private Button btnCheck;
+    private WeatherService weatherService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initView();
+        initData();
+    }
+
+    void initView() {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
@@ -35,17 +49,45 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        btnCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String city = etCity.getText().toString().trim();
-                if(!city.isEmpty()){
-                    Toast.makeText(MainActivity.this, "You enteredci" + city, Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(MainActivity.this, "Please enter city name!" + city, Toast.LENGTH_SHORT).show();
-                }
+        btnCheck.setOnClickListener(v -> {
+            String city = etCity.getText().toString().trim();
+            if (!city.isEmpty()) {
+                searchWeather(city);
+            } else {
+                Toast.makeText(MainActivity.this, "Please enter a city name!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    void initData() {
+        weatherService = WeatherAPIClient.getInstance().create(WeatherService.class);
+    }
+
+    void searchWeather(String city) {
+        String apiKey = "b622c061af7cafc011fa3cfaf554dc29";
+        Call<WeatherResponse> call = weatherService.getWeather(city, apiKey, "metric");
+
+        call.enqueue(new Callback<WeatherResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<WeatherResponse> call, @NonNull Response<WeatherResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    displayWeather(response.body());
+                } else {
+                    tvResult.setText("API Error: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<WeatherResponse> call, @NonNull Throwable t) {
+                tvResult.setText("Network Error: " + t.getMessage());
+            }
+        });
+    }
+
+    void displayWeather(WeatherResponse weather) {
+        String result = "City: " + weather.getName() + "\n" +
+                "Temperature: " + weather.getMain().getTemp() + "°C\n" +
+                "Weather: " + weather.getWeathers().get(0).getDescription();
+        tvResult.setText(result);
     }
 }

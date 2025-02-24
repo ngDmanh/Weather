@@ -6,11 +6,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface WeatherService {
-    @GET("data/2.5/weather") // Endpoint của API
+    @GET("data/2.5/weather")
     Call<WeatherResponse> getWeather(
             @Query("q") String city,
             @Query("appid") String apiKey,
-            @Query("units") String units // Đơn vị: metric (Celsius)
+            @Query("units") String units
     );
 }
 

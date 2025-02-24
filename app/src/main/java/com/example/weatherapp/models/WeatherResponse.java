@@ -4,7 +4,7 @@ import java.util.List;
 
 public class WeatherResponse {
     private Coord coord;
-    private List<Weather> weathers;
+    private List<Weather> weather;
     private String base;
     private Main main;
     private Integer visibility;
@@ -26,11 +26,11 @@ public class WeatherResponse {
     }
 
     public List<Weather> getWeathers() {
-        return weathers;
+        return weather;
     }
 
     public void setWeathers(List<Weather> weathers) {
-        this.weathers = weathers;
+        this.weather = weathers;
     }
 
     public String getBase() {
@@ -120,4 +120,9 @@ public class WeatherResponse {
     public void setCod(Integer cod) {
         this.cod = cod;
     }
+
+    public List<Weather> getWeather() {
+        return weather;
+    }
+
 }
